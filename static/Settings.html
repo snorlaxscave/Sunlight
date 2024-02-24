@@ -20,7 +20,7 @@
       <a href="/proxy">Proxy</a>
     </nav>
 
-    <h1 onclick="window.location.href='/'">Setttings</h1>
+    <h1 onclick="window.location.href='/'">Settings</h1>
 
     <nav>
       <a href="/contributors">links</a>
@@ -302,6 +302,27 @@
           document.body.style.backgroundImage = `url(${defaultBg})`;
         } else {
           backgrounds = backgrounds.filter(bg => bg !== defaultBg);
+
+          const firstBg = backgrounds[0];
+
+          document.body.style.backgroundImage = `url(${firstBg})`;
+
+          if (backgrounds.length > 0) {
+
+            let currentBackground = 1;
+
+            setInterval(() => {
+              if (currentBackground < backgrounds.length) {
+                document.body.style.backgroundImage = 'none';
+                document.body.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
+                currentBackground++;
+              } else {
+                currentBackground = 0;
+              }
+            }, 10000);
+
+          }
+
         }
 
         function saveBackgrounds() {
@@ -337,26 +358,6 @@
           location.reload();
 
         });
-
-
-        let currentBackground = 0;
-
-        setInterval(() => {
-
-          if (backgrounds.length > 0) {
-            document.body.style.backgroundImage = 'none';
-
-            document.body.style.backgroundImage = `url(${backgrounds[currentBackground]})`;
-
-            currentBackground++;
-
-            if (currentBackground >= backgrounds.length) {
-              currentBackground = 0;
-            }
-          }
-
-        }, 10000);
-
       </script>
 
 
