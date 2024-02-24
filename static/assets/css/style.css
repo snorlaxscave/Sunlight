@@ -14,7 +14,7 @@ body {
 
 header {
   background-color: rgba(7, 7, 7, 0.2);
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid white;
   color: #fff;
   display: flex;
   align-items: center;
